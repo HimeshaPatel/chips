@@ -66,15 +66,18 @@ const HeroSection = () => {
       <div className="hero-container">
         {isTablet ? (
           <>
-            {isMobile && (
-              <img
-                src="/images/hero-bg.png"
-                className="absolute bottom-40 size-full object-cover"
-              />
-            )}
+            <img
+              src="/images/hero-bg-tablet.png"
+              className="absolute inset-0 size-full object-cover"
+            />
+            {/* Light overlay to tone down the background */}
+            <div
+              className="absolute inset-0 bg-milk/40"
+              style={{ backgroundColor: 'rgba(250, 234, 222, 0.4)' }}
+            />
             <img
               src="/images/hero-img.png"
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto md:scale-125 lg:scale-150"
             />
           </>
         ) : (
@@ -88,7 +91,15 @@ const HeroSection = () => {
         )}
         <div className="hero-content opacity-0">
           <div className="overflow-hidden">
-            <h1 className="hero-title">Freaking Delicious</h1>
+            <h1
+              className="hero-title"
+              style={{
+                color: "#fff",
+                textShadow: "4px 9px 10px black",
+              }}
+            >
+              Freaking Delicious
+            </h1>
           </div>
           <div
             style={{
@@ -96,18 +107,27 @@ const HeroSection = () => {
             }}
             className="hero-text-scroll"
           >
-            <div className="hero-subtitle">
-              <h1>Protein + Caffine </h1>
+            <div
+              className="hero-subtitle"
+              style={{
+                backgroundColor: "#faeade",
+                borderTop: "2px solid black",
+                borderBottom: "2px solid black",
+              }}
+            >
+              <h1 style={{ color: "black", textShadow: "none" }}>
+                UNSTOPPABLE CRUNCH{" "}
+              </h1>
             </div>
           </div>
 
           <h2>
-            Live life to the fullest  with SPYLT: Shatter boredom and embrace
-            your inner kid with every deliciously smooth chug.
+            Experience the ultimate crunch with SPYLT Chips: Shatter your
+            cravings and fuel your focus with every perfectly seasoned bite.
           </h2>
 
           <div className="hero-button">
-            <p>Chug a SPYLT</p>
+            <p>Grab a Bag</p>
           </div>
         </div>
       </div>

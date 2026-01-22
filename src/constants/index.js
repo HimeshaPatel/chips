@@ -1,42 +1,42 @@
 const flavorlists = [
   {
-    name: "Chocolate Milk",
+    name: "Backyard Barbecue",
     color: "brown",
     rotation: "md:rotate-[-8deg] rotate-0",
   },
   {
-    name: "Stawberry Milk",
+    name: "Spicy Nacho Cheese",
     color: "red",
     rotation: "md:rotate-[8deg] rotate-0",
   },
   {
-    name: "Cookies & Cream",
+    name: "Cool Ranch & Herb",
     color: "blue",
     rotation: "md:rotate-[-8deg] rotate-0",
   },
   {
-    name: "Peanut Butter Chocolate",
+    name: "Classic Sea Salt",
     color: "orange",
     rotation: "md:rotate-[8deg] rotate-0",
   },
   {
-    name: "Vanilla Milkshake",
+    name: "Sour Cream & Onion",
     color: "white",
     rotation: "md:rotate-[-8deg] rotate-0",
   },
   {
-    name: "Max Chocolate Milk",
+    name: "Flaming Hot Crunch",
     color: "black",
     rotation: "md:rotate-[8deg] rotate-0",
   },
 ];
 
 const nutrientLists = [
-  { label: "Potassium", amount: "245mg" },
-  { label: "Calcium", amount: "500mg" },
-  { label: "Vitamin A", amount: "176mcg" },
-  { label: "Vitamin D", amount: "5mcg" },
-  { label: "Iron", amount: "1mg" },
+  { label: "Sodium", amount: "150mg" },
+  { label: "Total Fat", amount: "10g" },
+  { label: "Calories", amount: "160" },
+  { label: "Fiber", amount: "2g" },
+  { label: "Carbohydrates", amount: "15g" },
 ];
 
 const cards = [

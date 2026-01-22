@@ -1,6 +1,6 @@
 import NavBar from "./components/NavBar";
 import HeroSection from "./sections/HeroSection";
-import { ScrollSmoother, ScrollTrigger } from "gsap/all";
+import { ScrollSmoother, ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
 import MessageSection from "./sections/MessageSection";
 import FlavorSection from "./sections/FlavorSection";
@@ -10,7 +10,7 @@ import BenefitSection from "./sections/BenefitSection";
 import TestimonialSection from "./sections/TestimonialSection";
 import FooterSection from "./sections/FooterSection";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 const App = () => {
   useGSAP(() => {
