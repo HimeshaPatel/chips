@@ -70,6 +70,20 @@ const TestimonialSection = () => {
     video.pause();
   };
 
+  const handleMobilePlay = (index) => {
+    // Pause all other videos
+    vdRef.current.forEach((v, i) => {
+      if (v && i !== index) v.pause();
+    });
+    const video = vdRef.current[index];
+    if (video) video.play();
+  };
+
+  const handleMobilePause = (index) => {
+    const video = vdRef.current[index];
+    if (video) video.pause();
+  };
+
   // Mobile phone layout - completely separate from GSAP
   if (isMobilePhone) {
     return (
@@ -82,14 +96,20 @@ const TestimonialSection = () => {
 
         <div className="mobile-cards">
           {cards.map((card, index) => (
-            <div key={index} className="mobile-vd-card">
+            <div
+              key={index}
+              className="mobile-vd-card"
+              onMouseEnter={() => handleMobilePlay(index)}
+              onMouseLeave={() => handleMobilePause(index)}
+              onTouchStart={() => handleMobilePlay(index)}
+              onTouchEnd={() => handleMobilePause(index)}
+            >
               <video
                 ref={(el) => (vdRef.current[index] = el)}
                 src={card.src}
                 playsInline
                 muted
                 loop
-                autoPlay
                 className="size-full object-cover"
               />
             </div>
