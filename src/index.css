@@ -235,6 +235,12 @@ body::-webkit-scrollbar {
   .nutrition-section {
     @apply min-h-dvh 2xl:h-[120dvh] overflow-hidden relative;
 
+    /* Remove forced full-height on mobile phones */
+    @media (max-width: 767px) {
+      min-height: auto !important;
+      height: auto !important;
+    }
+
     .big-img {
       @apply w-full absolute 2xl:h-full md:h-2/3 h-1/2 left-0 bottom-0 object-bottom 2xl:object-contain object-cover;
     }
@@ -250,12 +256,15 @@ body::-webkit-scrollbar {
     .nutrition-box {
       @apply absolute md:bottom-16 bottom-5 w-full md:px-0 px-5;
 
+      /* Make nutrition box relative on mobile so it flows with content */
+      @media (max-width: 767px) {
+        position: relative !important;
+        bottom: auto !important;
+        margin-top: 1rem;
+      }
+
       .list-wrapper {
         @apply bg-[#fdebd2] rounded-full border-[.5vw] border-[#e8ddca] mx-auto max-w-7xl md:py-8 py-5 md:px-0 px-5 flex justify-between items-center;
-
-        p {
-          @apply text-[#865720];
-        }
       }
 
       .spacer-border {
@@ -264,34 +273,7 @@ body::-webkit-scrollbar {
     }
   }
 
-  /* Testimonial section mobile fixes */
-  .testimonials-section {
-    @media (max-width: 767px) {
-      margin-top: 40px !important;
-      min-height: auto !important;
-      height: auto !important;
-      padding-top: 2rem !important;
-      padding-bottom: 2rem !important;
 
-      .pin-box {
-        position: relative !important;
-        height: auto !important;
-        min-height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 1.5rem !important;
-        padding: 1rem !important;
-      }
-
-      .vd-card {
-        position: relative !important;
-        transform: none !important;
-        width: 80% !important;
-        height: 200px !important;
-      }
-    }
-  }
 
   .benefit-section {
     @apply min-h-dvh bg-[#222123] overflow-hidden relative;
@@ -317,7 +299,7 @@ body::-webkit-scrollbar {
     }
 
     .vd-pin-section {
-      @apply md:h-[110vh] h-dvh overflow-hidden md:!-translate-y-[15%] md:mt-0 mt-20;
+      @apply md:h-[110vh] h-dvh overflow-hidden md:-translate-y-[15%] md:mt-0 mt-20;
 
       video {
         @apply size-full absolute inset-0 object-cover;
@@ -346,6 +328,60 @@ body::-webkit-scrollbar {
 
     h1 {
       @apply uppercase text-[20.5vw] leading-[105%] tracking-[-.4vw] ml-[2vw] font-bold;
+    }
+
+    /* Mobile phone overrides - MUST come after base styles */
+    @media (max-width: 767px) {
+      margin-top: 0 !important;
+      min-height: auto !important;
+      height: auto !important;
+      padding-top: 2rem !important;
+      padding-bottom: 3rem !important;
+      overflow: hidden !important;
+
+      &>div:first-child {
+        position: relative !important;
+        width: 100% !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+        h1 {
+          font-size: 3rem !important;
+          line-height: 1.1 !important;
+          transform: none !important;
+        }
+      }
+
+      .pin-box {
+        position: relative !important;
+        height: auto !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.25rem !important;
+        padding: 0.5rem 1rem !important;
+        padding-inline-start: 1rem !important;
+        bottom: auto !important;
+
+        .vd-card {
+          position: relative !important;
+          transform: none !important;
+          width: 85% !important;
+          height: auto !important;
+          aspect-ratio: 4 / 3 !important;
+          margin-inline-start: 0 !important;
+          border-radius: 1rem !important;
+          flex: none !important;
+
+          video {
+            border-radius: 1rem !important;
+          }
+        }
+      }
     }
   }
 
@@ -387,4 +423,51 @@ body::-webkit-scrollbar {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Mobile-only testimonial section - separate from GSAP */
+.testimonials-section-mobile {
+  background-color: #faeade;
+  padding: 2rem 0 3rem;
+  overflow: hidden;
+}
+
+.mobile-testimonial-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0 1.5rem;
+}
+
+.mobile-testimonial-title h1 {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-left: 2vw;
+}
+
+.mobile-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 1rem;
+}
+
+.mobile-vd-card {
+  width: 85%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid #faeade;
+}
+
+.mobile-vd-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
 }
